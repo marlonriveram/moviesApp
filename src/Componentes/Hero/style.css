@@ -1,0 +1,5 @@
+@media (min-width:670px) {
+    .hero{
+        height: calc(100vh - 48px);
+    }
+}
