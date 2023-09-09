@@ -1,0 +1,4 @@
+.carousel{
+    width: calc(120px*18);
+    max-width:  calc(300px*18);
+}

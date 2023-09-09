@@ -8,9 +8,9 @@ function Hero (){
         backgroundPosition: 'center center' 
     }
     return(
-        <div style={stylesHero} className={` bg-gray-300 hero w-4/5 h-96 m-auto mt-4 rounded-lg sm:w-full sm:m-0 sm:rounded-none sm:h-screen relative`}>
+        <div style={stylesHero} className={` bg-gray-300 hero w-4/5 h-96 m-auto mt-4 rounded-lg sm:w-full sm:m-0 sm:rounded-none sm:h-screen sm:mb-7 relative`}>
 
-        <div className='info-pelicula  w-6/12 flex flex-col gap-5 p-3 absolute bottom-0 mb-20'>
+        <div className='info-pelicula  w-6/12 flex flex-col gap-5 p-3 absolute bottom-0 '>
             <h3 className='titulo-pelicula text-3xl font-black'>Nombre pelicula</h3>
 
             <p className='sinopsis-pelicula text-start text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sint vitae perferendis a repudiandae saepe cumque magni aliquid dolorum dolores iure impedit dolorem unde, porro, distinctio esse fugiat neque non.</p>
