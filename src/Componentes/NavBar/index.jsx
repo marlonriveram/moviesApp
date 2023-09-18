@@ -1,13 +1,13 @@
 import {  NavLink } from "react-router-dom";
 import { useContext } from 'react';
-import { asideContext } from "../Contexto";
 import { useWidthWindow } from "../../Hooks/WidthWindow";
 import { FaBars } from "react-icons/fa";
+import { Context } from "../Contexto";
 
 
 function NavBar () {
     const {isMobile} = useWidthWindow();
-    const {setIsOpenAside} = useContext(asideContext);
+    const {setIsOpenAside} = useContext(Context);
     const clickOpen = () =>{
         setIsOpenAside(true)
     }

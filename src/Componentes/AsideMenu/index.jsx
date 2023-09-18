@@ -2,10 +2,10 @@ import {  NavLink } from "react-router-dom";
 import { useContext } from 'react';
 import { useWidthWindow } from "../../Hooks/WidthWindow";
 import { FiX } from "react-icons/fi";
-import { asideContext } from "../Contexto";
+import { Context } from "../Contexto";
 function AsideMenu () {
     const {isMobile} = useWidthWindow();
-    const { isOpenAside,setIsOpenAside,} = useContext(asideContext);
+    const { isOpenAside,setIsOpenAside,} = useContext(Context);
 
     const clickClouse = () =>{
         setIsOpenAside(false);

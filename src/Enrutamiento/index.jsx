@@ -6,6 +6,7 @@ import { InicioSesion } from "../paginas/InicioSesion"
 import { Buscador } from "../paginas/Buscador"
 import { Perfiles } from "../paginas/Perfiles"
 import { NotFound } from "../paginas/NotFound";
+import { AllMovies } from "../Componentes/AllMovies";
 
 const Rutas = () =>{
     let ruta = useRoutes ([
@@ -30,6 +31,10 @@ const Rutas = () =>{
             element: <Buscador />
         },
         {
+            path:'/all-movies',
+            element:<AllMovies /> 
+        },
+        {
             path:'/',
             element: <Perfiles />
         },
@@ -38,6 +43,7 @@ const Rutas = () =>{
             path:'/*',
             element:<NotFound /> 
         },
+        
     ])
 
     return ruta;
