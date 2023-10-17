@@ -1,9 +1,10 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { useState } from "react";
 const Context = createContext();
 
 function Provider (prop){
-    const [isOpenAside,setIsOpenAside] = useState(false)
+    const [isOpenAside,setIsOpenAside] = useState(false);
+   
     return(
     <Context.Provider
         value={{

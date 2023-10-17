@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
 import { Hero } from "../../Componentes/Hero"
 import { Categories } from "../../Componentes/Categories"
 import { SubCategorie } from "../../Componentes/SubCateories";
 
 
 function Peliculas () {
+  console.log('gdgsdgsgsg')
   const page = 2;
   const category = [
     {name:'Now Playing',url:`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`},

@@ -7,7 +7,16 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(150px, 1fr))', 
+        'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))', 
+      },
+      minHeight: {
+        '400': '400px',
+      },
+      transitionDuration: {
+        '2000': '2s',
+      },
+      backgroundImage:{
+      'degradado':'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7))' 
       }
     },
   },

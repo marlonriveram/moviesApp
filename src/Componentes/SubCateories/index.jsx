@@ -1,20 +1,23 @@
 import { useState,useRef,useEffect } from "react"
-import { Link } from "react-router-dom"
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import { Card } from "../CardsCarousel"
 import './index.css'
-import { useApiPelucula } from "../../Hooks/ApiPeliculas";
+import { useApiPelicula } from "../../Hooks/ApiPeliculas";
+import { Link } from "react-router-dom";
+
 
 function SubCategorie ({Url,titulo}){
-   
+    const [page,setPage] = useState(1)
     const [offset,setOffset] = useState(0);
     const [containerCarouselWidth,setContainerCarouselWidth] = useState(0);
     const [carouselWidth,setCarouselWidth] = useState (0);
     const carouselRef = useRef(null);
     const containerCarouselRef = useRef(null);
   
-    const {urlApiPelicula} = useApiPelucula (Url)
-  
+    // const [dataMovie,setDataMovie] = useState ([])
+    const {dataMovie} = useApiPelicula(Url,page)
+    
+
 
     useEffect(() =>{
         const observador = new ResizeObserver((entries) =>{
@@ -60,24 +63,26 @@ function SubCategorie ({Url,titulo}){
        <h2 className='text-2xl font-extralight '>{titulo}</h2>
        {/*{{pathname:'/all-movies',state:{data:Url}}} para enviar varios parametros 
        la ruta de destinio pathname:'/all-movies' y state es un array que guarde dentro de data que es la url*/ }
-        <Link to={{pathname:'/all-movies',state:{data:Url}}}>  
+            <Link
+                to= '/all-movies'
+            >
             <p className='cursor-pointer font-semibold'>see all</p>
-        </Link>
+            </Link>
        </div>
          <div className='subcategoria  flex items-center relative '>
            <AiOutlineLeft 
            onClick={() => moveLeft()}
            className='h-28 left-0 top-1/3 cursor-pointer bg-transparent' size={40}  />
            <div 
-            ref={containerCarouselRef}
            className='container-carousel w-full flex items-center overflow-hidden '>
                 <div
-                ref={carouselRef}
+
                 style={translateInX}
                 className="carousel flex  p-3 gap-2  ">
                         {
-                            urlApiPelicula?.map((item) =>(
-                                <Card key={item.id}
+                            dataMovie?.map((item) =>(
+                                <Card 
+                                    key={item.id}
                                     Url={item.backdrop_path}
                                 />
                             ))
@@ -93,3 +98,4 @@ function SubCategorie ({Url,titulo}){
 };
 
 export{SubCategorie}
+

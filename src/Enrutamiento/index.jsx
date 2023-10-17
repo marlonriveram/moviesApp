@@ -8,6 +8,7 @@ import { Perfiles } from "../paginas/Perfiles"
 import { NotFound } from "../paginas/NotFound";
 import { AllMovies } from "../Componentes/AllMovies";
 
+
 const Rutas = () =>{
     let ruta = useRoutes ([
         {
@@ -31,12 +32,12 @@ const Rutas = () =>{
             element: <Buscador />
         },
         {
-            path:'/all-movies',
-            element:<AllMovies /> 
-        },
-        {
             path:'/',
             element: <Perfiles />
+        },
+        {
+            path:'/all-movies',
+            element: <AllMovies/>
         },
 
         {
