@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 import './App.css'
 import { NavBar } from './Componentes/NavBar'
 import { Enrutamiento } from './Enrutamiento'
@@ -10,7 +10,7 @@ import { Footer } from './Componentes/Footer'
 function App() {
   return (
     <div className='relative'>
-    <BrowserRouter>
+    <HashRouter>
       <Provider>
       <Layout>
       <NavBar />
@@ -19,7 +19,7 @@ function App() {
       <Footer/>
       </Layout>
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
     </div>
   )
 }

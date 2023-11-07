@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Peliculas } from "../paginas/Peliculas";
 import { SeriesTv } from "../paginas/SeriesTv";
 import { Actores } from "../paginas/Actores";
@@ -9,49 +9,27 @@ import { NotFound } from "../paginas/NotFound";
 import { AllMovies } from "../Componentes/AllMovies";
 
 
-const Rutas = () =>{
-    let ruta = useRoutes ([
-        {
-            path:'/peliculas',
-            element: <Peliculas />
-        },
-        {
-            path:'/series-tv',
-            element: <SeriesTv />
-        },
-        {
-            path:'/actores',
-            element: <Actores />
-        },
-        {
-            path:'/inicio-sesion',
-            element: <InicioSesion />
-        },
-        {
-            path:'/buscador',
-            element: <Buscador />
-        },
-        {
-            path:'/',
-            element: <Perfiles />
-        },
-        {
-            path:'/all-movies',
-            element: <AllMovies/>
-        },
 
-        {
-            path:'/*',
-            element:<NotFound /> 
-        },
-        
-    ])
-
-    return ruta;
-}
 function Enrutamiento () {
     return(
-        <Rutas />
+        <Routes>
+            <Route path="/peliculas" 
+            element ={ <Peliculas />}/>
+            <Route path="/series-tv" 
+            element ={<SeriesTv />}/>
+            <Route path="/actores" 
+            element ={<Actores />}/>
+            <Route path="/inicio-sesion" 
+            element ={<InicioSesion />}/>
+            <Route path="/buscador" 
+            element ={<Buscador />}/>
+            <Route path="/" 
+            element ={<Perfiles />}/>
+            <Route path="/all-movies/:slug" 
+            element ={<AllMovies/>}/>
+            <Route path="*" 
+            element ={<NotFound />}/>
+        </Routes>
     )
 }
 

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-function useApiPelicula (urlPelicula,page = 1) {
+function useApiPelicula (urlPelicula,page) {
   const [dataMovie,setDataMovie] = useState ([])
+  
   useEffect(() =>{
-    console.log('render')
+    
       const options = {
           method: 'GET',
           headers: {
@@ -16,7 +17,7 @@ function useApiPelicula (urlPelicula,page = 1) {
           .then(response => response.json())
           .then(data => setDataMovie(item => item.concat(data.results)))
           .catch(err => console.error(err));
-  },[page])
+  },[page]) // cada que cambie page se ejecuta el efecto
     return{dataMovie}
 };
 
