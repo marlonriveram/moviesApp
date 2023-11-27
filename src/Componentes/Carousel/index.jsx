@@ -7,48 +7,50 @@ import './index.css'
 import { WidthContainer } from '../../Hooks/WidthContainers';
 function Carousel ({url}) {
 
-    const [page,setPage] = useState(1);
+    const page = 1;
     const containerCarouselRef = useRef(null);
     const {dataMovie} = useApiPelicula(url,page);
-    const {containerCarouselWidth} = WidthContainer(containerCarouselRef);
+    const {containerCarouselWidth} = WidthContainer(containerCarouselRef);// permite saber la dimencion del conatainer del carousel
 
 
     const moveLeft = () =>{
         if (containerCarouselRef.current) {
-            containerCarouselRef.current.scrollLeft -= containerCarouselWidth;
+            containerCarouselRef.current.scrollLeft -= containerCarouselWidth; // se desplaza a la izq el tamaño que tenga el conatainer del carousel
         }
     }
 
     const moveRight = () =>{
         if (containerCarouselRef.current) {
-            containerCarouselRef.current.scrollLeft += containerCarouselWidth;
+            containerCarouselRef.current.scrollLeft += containerCarouselWidth; // se desplaza a la der el tamaño que tenga el conatainer del carou
         }
     }
 
     return(
-        <div className='subcategoria  flex items-center relative overflow-hidden '>
+        <div className='container-rows-carosuel  flex items-center relative overflow-hidden '>
            <AiOutlineLeft
            onClick={() => moveLeft()}
-           className=' cursor-pointer bg-transparent' size={120}  />
-        <div
-        
-        ref={containerCarouselRef}
-        className='container-carousel overflow-hidden '>
+           className=' cursor-pointer bg-transparent' size={120} 
+           />
+
+            <div
+                className='container-carousel overflow-hidden '
+                ref={containerCarouselRef}
+            >
+                    
                 <div className="carousel flex gap-2 p-4">
-                        {
-                            dataMovie?.map((item) =>(
-                                <Card
-                                    key={item.id}
-                                    Url={item.backdrop_path}
-                                />
-                            ))
-                        }
+                    {dataMovie?.map((item) =>(
+                    <Card
+                        key={item.id}
+                        Url={item.backdrop_path}
+                    />))}
+
                 </div>
-           </div>
+            </div>
 
            <AiOutlineRight
-           onClick={() => moveRight()}
-            className=' cursor-pointer ' size={120} />
+            onClick={() => moveRight()}
+            className=' cursor-pointer ' size={120} 
+            />
         </div>
     )
 }

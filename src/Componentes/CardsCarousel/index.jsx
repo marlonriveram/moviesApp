@@ -1,13 +1,12 @@
-import { useRef } from 'react';
+import { useUrlImagen } from '../../Hooks/UrlImagen'
 import './index.css'
 function Card ({Url}){
-
-    const cardWidthRef = useRef(null);
  
+    const urlImagen = useUrlImagen();
     return(
         <div className="card ">
             <figure className="Container_img ">
-             <img className=' img-card  object-contain rounded-lg' src={`https://image.tmdb.org/t/p/w1280/${Url}`}/>
+             <img className=' img-card  object-contain rounded-lg' src={`${urlImagen?.secure_base_url}${urlImagen?.backdrop_sizes[1]}/${Url}`}/>
             </figure>
         </div>
     )

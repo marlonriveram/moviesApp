@@ -8,7 +8,7 @@ function Hero (){
         backgroundPosition: 'center center' 
     }
     return(
-        <div style={stylesHero} className={` bg-gray-300 hero w-4/5 h-96 m-auto mt-4 rounded-lg sm:w-full sm:m-0 sm:rounded-none sm:h-screen sm:mb-7 relative`}>
+        <div style={stylesHero} className={` hero bg-gray-300 hero w-4/5 h-96 m-auto mt-4 rounded-lg sm:w-full sm:m-0 sm:rounded-none sm:h-screen sm:mb-7 relative`}>
 
         <div className='info-pelicula  w-6/12 flex flex-col gap-5 p-3 absolute bottom-0 '>
             <h3 className='titulo-pelicula text-3xl font-black'>Nombre pelicula</h3>

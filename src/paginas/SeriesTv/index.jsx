@@ -1,6 +1,7 @@
 import { Hero } from "../../Componentes/Hero"
-import { Categories } from "../../Componentes/Categories"
-import { SubCategorie } from "../../Componentes/SubCateories";
+import { ContainerCategories } from "../../Componentes/ContainerCategories";
+import { Categories } from "../../Componentes/Cateories";
+
 
 function SeriesTv () {
     const urlTigre = 'https://images.pexels.com/photos/3777200/pexels-photo-3777200.jpeg?auto=compress&cs=tinysrgb&w=600';
@@ -8,10 +9,10 @@ function SeriesTv () {
     return(
         <>
         <Hero />
-        <Categories>
-          <SubCategorie imgUrl={urlTigre}/>
-          <SubCategorie imgUrl={urlLeon}/>
-        </Categories>
+        <ContainerCategories>
+          <Categories imgUrl={urlTigre}/>
+          <Categories imgUrl={urlLeon}/>
+        </ContainerCategories>
         </>
     )
 };

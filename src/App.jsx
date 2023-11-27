@@ -8,6 +8,7 @@ import { Provider } from './Componentes/Contexto'
 import { Footer } from './Componentes/Footer'
 
 function App() {
+  
   return (
     <div className='relative'>
     <HashRouter>
