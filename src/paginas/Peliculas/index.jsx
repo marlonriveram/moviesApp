@@ -1,12 +1,15 @@
 import { Hero } from "../../Componentes/Hero"
 import { ContainerCategories } from "../../Componentes/ContainerCategories";
-import {movieCategory} from "../../dataMovies"
+import {urls} from "../../dataMovies"
+import { useTokenAuth } from "../../Hooks/TokenAuth";
 
 function Peliculas () {
+   
+
     return(
         <>
         <Hero />
-        <ContainerCategories movies={movieCategory} />
+        <ContainerCategories movies={urls.movieCategory} />
         </>
     )
 };

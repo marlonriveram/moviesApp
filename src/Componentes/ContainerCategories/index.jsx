@@ -9,6 +9,7 @@ function ContainerCategories ({movies}) {
               titulo={movie.name}
               Url={movie.url}
               slug={movie.slug}
+              
               />
             ))}
       </div>

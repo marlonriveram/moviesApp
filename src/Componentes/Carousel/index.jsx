@@ -2,23 +2,24 @@ import { useEffect, useRef, useState } from 'react'
 import { useApiPelicula } from '../../Hooks/ApiPeliculas'
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import { Card } from '../CardsCarousel'
-
 import './index.css'
 import { WidthContainer } from '../../Hooks/WidthContainers';
+
 function Carousel ({url}) {
 
     const page = 1;
     const containerCarouselRef = useRef(null);
     const {dataMovie} = useApiPelicula(url,page);
+    
     const {containerCarouselWidth} = WidthContainer(containerCarouselRef);// permite saber la dimencion del conatainer del carousel
 
-
+    // desplazar el carousel a la izquierda
     const moveLeft = () =>{
         if (containerCarouselRef.current) {
             containerCarouselRef.current.scrollLeft -= containerCarouselWidth; // se desplaza a la izq el tamaño que tenga el conatainer del carousel
         }
     }
-
+    // desplazar el carousel a la derecha
     const moveRight = () =>{
         if (containerCarouselRef.current) {
             containerCarouselRef.current.scrollLeft += containerCarouselWidth; // se desplaza a la der el tamaño que tenga el conatainer del carou
@@ -26,7 +27,7 @@ function Carousel ({url}) {
     }
 
     return(
-        <div className='container-rows-carosuel  flex items-center relative overflow-hidden '>
+        <div className='container-rows-carosuel  flex items-center relative  '>
            <AiOutlineLeft
            onClick={() => moveLeft()}
            className=' cursor-pointer bg-transparent' size={120} 
@@ -41,7 +42,10 @@ function Carousel ({url}) {
                     {dataMovie?.map((item) =>(
                     <Card
                         key={item.id}
-                        Url={item.backdrop_path}
+                        poster={item.poster_path}
+                        title={item.title || item.name}
+                        dataMovie={dataMovie}
+
                     />))}
 
                 </div>

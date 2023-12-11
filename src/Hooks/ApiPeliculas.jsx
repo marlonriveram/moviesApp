@@ -15,7 +15,7 @@ function useApiPelicula (urlPelicula,page) {
     
     fetch(urlPelicula, options)
       .then(response => response.json())
-      .then(response => setDataMovie(movies =>movies.concat(response.results)))
+      .then( response => setDataMovie(movies =>movies?.concat(response.results)))
       .catch(err => console.error(err));
     },[page]) // cada que cambie page se ejecuta el efecto
     return{dataMovie}

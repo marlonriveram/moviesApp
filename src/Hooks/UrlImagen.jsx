@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function useUrlImagen () {
-    const [urlImagen,setUrlImagen] = useState();
+    const [dataImage,setDataImage] = useState();
 
     useEffect(()=>{
         const options = {
@@ -14,13 +14,11 @@ function useUrlImagen () {
           
           fetch('https://api.themoviedb.org/3/configuration', options)
             .then(response => response.json())
-            .then(response => setUrlImagen(response.images))
+            .then(response => setDataImage(response?.images))
             .catch(err => console.error(err));
     },[])
         
-        return(urlImagen)
+        return (dataImage)
     }
-
-   
 
     export { useUrlImagen }

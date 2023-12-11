@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Peliculas } from "../paginas/Peliculas";
 import { SeriesTv } from "../paginas/SeriesTv";
+import { DetailView } from "../paginas/detailedView"
 import { Actores } from "../paginas/Actores";
 import { InicioSesion } from "../paginas/InicioSesion"
 import { Buscador } from "../paginas/Buscador"
@@ -24,9 +25,10 @@ function Enrutamiento () {
             <Route path="/buscador" 
             element ={<Buscador />}/>
             <Route path="/" 
-            element ={<Perfiles />}/>
+            element ={<Navigate to={'/peliculas'}/>}/>
             <Route path="/all-movies/:slug" 
             element ={<AllMovies/>}/>
+            <Route path="/detail-View/:title" element = {<DetailView/>}/>
             <Route path="*" 
             element ={<NotFound />}/>
         </Routes>

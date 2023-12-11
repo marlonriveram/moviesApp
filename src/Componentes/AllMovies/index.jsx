@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useApiPelicula } from "../../Hooks/ApiPeliculas";
 import { CardAllMovies } from "../CardAllMovies"
-import { useParams } from "react-router-dom";
-import { movieCategory } from "../../dataMovies";
+import { useLocation, useParams } from "react-router-dom";
+import { urls} from "../../dataMovies";
 
 
 function AllMovies () {
@@ -14,13 +14,23 @@ function AllMovies () {
     const {slug} = useParams();
     //-------------------------------------------
 
-    const urlCaterory = movieCategory.find(dataMovie => dataMovie.slug === slug);
-    let endpointCategory = urlCaterory.slug;
+    // const location = useLocation()
 
-    const url = (`https://api.themoviedb.org/3/movie/${endpointCategory}?language=en-US&page=${page}`)
+    const urlMovie = urls.movieCategory.find(dataMovie => dataMovie.slug === slug);
+    const urlTvSerie = urls.tvSeriesCategory.find(dataMovie => dataMovie.slug === slug);
+    let endpointCategory;
+    let url='';
+    if(urlMovie){
+        endpointCategory= urlMovie.slug;
+        url = `https://api.themoviedb.org/3/movie/${endpointCategory}?language=en-US&page=${page}`
+    }else if(urlTvSerie){
+        endpointCategory= urlTvSerie.slug;
+        url = `https://api.themoviedb.org/3/tv/${endpointCategory}?language=en-US&page=${page}`
+    }
+   
     const {dataMovie} = useApiPelicula(url,page)
     // observar el ultimo elemento de datamovie
-
+  
     useEffect(()=>{  // quitarr de aquí a futuro
         if(page === 4) return
             const observer = new IntersectionObserver((entries,observador)=>{
@@ -48,6 +58,7 @@ function AllMovies () {
                    key={movie.id}
                    movie={movie}
                    ref={index === dataMovie.length - 1 ? lastItem : null}
+                   dataMovie={dataMovie}
                    />))}
        </div>
            <div>Cargando ...</div>
