@@ -1,5 +1,6 @@
 .backdrop_path{
     position: relative;
+   
 }
 .image_backdrop_path{
     width: 100%;
@@ -15,8 +16,61 @@
     height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
     position: absolute;
-    z-index: 1;
+    
 }
 .container-info-detail{
     display: flex;
+    justify-content: space-between;
+    position: absolute;
+    height: 100%;
+    width: 95%;
+    border: solid 1px aqua;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.poster_path{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.poster_path_image{
+    border-radius:30px;
+    border: solid 2px gray;
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    flex-grow: 1;
+}
+.info-movie{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 650px;
+   
+}
+
+.info-movie h1 {
+    color: aliceblue;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.info-movie p {
+    color: aliceblue;
+    text-align: start;
+    font-size: 17px;
+}
+
+span{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: papayawhip;
+    border-radius: 100%;
 }

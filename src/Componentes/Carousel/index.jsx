@@ -4,6 +4,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import { Card } from '../CardsCarousel'
 import './index.css'
 import { WidthContainer } from '../../Hooks/WidthContainers';
+import { ButtonType } from '../ButtonType'
 
 function Carousel ({url}) {
 
@@ -30,7 +31,7 @@ function Carousel ({url}) {
         <div className='container-rows-carosuel  flex items-center relative  '>
            <AiOutlineLeft
            onClick={() => moveLeft()}
-           className=' cursor-pointer bg-transparent' size={120} 
+           className=' cursor-pointer ' size={120} 
            />
 
             <div
@@ -55,6 +56,12 @@ function Carousel ({url}) {
             onClick={() => moveRight()}
             className=' cursor-pointer ' size={120} 
             />
+            {/* <ButtonType
+                type={'letArrow'}
+                size={120}
+                color={'black'}
+            />
+             */}
         </div>
     )
 }
