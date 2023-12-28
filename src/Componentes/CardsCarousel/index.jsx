@@ -6,7 +6,6 @@ function Card ({poster,title,dataMovie}){
     const navigate = useNavigate();
     const location = useLocation();
     const dataImagen = useUrlImagen();//hook para el tamaño y calidad de las imagenes
-
     const detailView = () =>{ // ir a la vista de detalles
         navigate(`/detail-View/${title}`,{ state:dataMovie });
     }
@@ -15,11 +14,11 @@ function Card ({poster,title,dataMovie}){
 
     return(
         <div 
-            className="card h-52"
+            className="card  "
             onClick={detailView}
         >
-            <figure className="Container_img h-full">
-             <img className=' img-card object-contain  rounded-lg' src={images}/>
+            <figure className="Container_img h-full ">
+             <img className=' img-card rounded-lg' src={images}/> 
             </figure>
         </div>
     )

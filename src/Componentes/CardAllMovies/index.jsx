@@ -10,7 +10,7 @@ const CardAllMovies = forwardRef ((prop,ref)=> {
     const images = `${urlImagen?.secure_base_url}${urlImagen?.backdrop_sizes[1]}${prop.movie?.backdrop_path}`;
     
     const detailView = () =>{
-        navigate(`/detail-View/${prop.movie.title}`,{ state: prop.dataMovie  })
+        navigate(`/detail-View/${prop.movie.name || prop.movie.title}`,{ state: prop.dataMovie  })
     }
 
     return(

@@ -8,9 +8,9 @@ import { ButtonType } from '../ButtonType'
 
 function Carousel ({url}) {
 
-    const page = 1;
+    
     const containerCarouselRef = useRef(null);
-    const {dataMovie} = useApiPelicula(url,page);
+    const {dataMovie} = useApiPelicula(url,1);
     
     const {containerCarouselWidth} = WidthContainer(containerCarouselRef);// permite saber la dimencion del conatainer del carousel
 

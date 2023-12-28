@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { useWidthWindow } from "../../Hooks/WidthWindow";
 import { FaBars } from "react-icons/fa";
 import { Context } from "../Contexto";
+import "./style.css"
 
 
 function NavBar () {
@@ -81,7 +82,7 @@ function NavBar () {
     )
   }
     return(
-        <nav className=' flex justify-between items-center p-3'>
+        <nav className='navbar flex justify-between items-center p-3'>
             {!isMobile ? renderDesktop(): renderMobile()}
         </nav>
     )

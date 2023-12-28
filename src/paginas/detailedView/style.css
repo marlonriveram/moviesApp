@@ -1,5 +1,6 @@
 .backdrop_path{
     position: relative;
+    min-width: 375px;
    
 }
 .image_backdrop_path{
@@ -20,11 +21,12 @@
 }
 .container-info-detail{
     display: flex;
+    gap: 70px;
     justify-content: space-between;
     position: absolute;
+    border: 2px solid red;
     height: 100%;
     width: 95%;
-    border: solid 1px aqua;
     padding: 15px;
     top: 50%;
     left: 50%;
@@ -34,7 +36,7 @@
 .poster_path{
     height: 100%;
     width: 25%;
-    display: flex;
+    min-width: 250px;
     align-items: center;
 }
 
@@ -50,7 +52,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 650px;
+    width: 75%;
+    /* max-width: 650px; */
    
 }
 
@@ -64,13 +67,34 @@
 .info-movie p {
     color: aliceblue;
     text-align: start;
-    font-size: 17px;
+    font-size: 15px;
+    
 }
 
-span{
+/* span{
     display: inline-block;
     width: 60px;
     height: 60px;
     background-color: papayawhip;
     border-radius: 100%;
+} */
+
+@media (max-width:400px) {
+
+    .container-info-detail{
+        display: block;
+    }
+
+    .info-movie {
+        width: 100%;
+    }
+
+    
+.info-movie h1 {
+    font-size: 25x;
+    font-weight: bold;
+}
+    .info-movie p {
+        font-size: 17px;
+    }
 }

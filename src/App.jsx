@@ -17,7 +17,7 @@ function App() {
       <NavBar />
       <Enrutamiento />
       <AsideMenu />
-      <Footer/>
+      {/* <Footer/> */}
       </Layout>
       </Provider>
     </HashRouter>

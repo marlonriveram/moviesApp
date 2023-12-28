@@ -1,9 +1,10 @@
-import { AiOutlineLeft, AiOutlineRight} from "react-icons/ai"
+import { AiFillHeart, AiOutlineLeft, AiOutlineRight} from "react-icons/ai"
 function ButtonType ({type,size,color}) {
 
     const buttonType = {
-        'letArrow':<AiOutlineLeft size={size} color={color}/>,
-        'rightArrow':<AiOutlineRight size={size} color={color}/>
+        'letArrow':<AiOutlineLeft className="cursor-pointer" size={size} color={color}/>,
+        'rightArrow':<AiOutlineRight className="cursor-pointer" size={size} color={color}/>,
+        'like':<AiFillHeart className="cursor-pointer" size={size} color={color}/>
     }
     return(
         <>
