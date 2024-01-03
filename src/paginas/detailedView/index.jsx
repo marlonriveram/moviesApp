@@ -1,6 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import { useUrlImagen } from "../../Hooks/UrlImagen";
-import "./style.css"
+import "./detailView.css"
 import { ButtonType } from "../../Componentes/ButtonType";
 import { useWidthWindow } from "../../Hooks/WidthWindow";
 import { useCredits } from "../../Hooks/useCredits";
@@ -14,7 +14,7 @@ function DetailView () {
     
     
     const movieDetail = location.state.find(movie => (movie.title || movie.name) === title);
-    const credits = useCredits(movieDetail.id);
+    const credits = useCredits(movieDetail.id);//mirara luego
    
     const backdrop_path = `${dataImagen?.secure_base_url}${dataImagen?.backdrop_sizes[3]}/${movieDetail.backdrop_path}`;
     const poster_path = `${dataImagen?.secure_base_url}${dataImagen?.backdrop_sizes[3]}/${movieDetail.poster_path}`

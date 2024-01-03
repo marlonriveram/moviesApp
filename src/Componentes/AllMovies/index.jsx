@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useApiPelicula } from "../../Hooks/ApiPeliculas";
 import { CardAllMovies } from "../CardAllMovies"
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { urls} from "../../dataMovies";
+import './allMovies.css'
 
 
 function AllMovies () {
@@ -13,13 +14,14 @@ function AllMovies () {
     // params
     const {slug} = useParams();
     //-------------------------------------------
-
-    // const location = useLocation()
+    // const {selectCategoryUrl} = useContext(Context);
+    // console.log(selectCategoryUrl)
 
     const urlMovie = urls.movieCategory.find(dataMovie => dataMovie.slug === slug);
     const urlTvSerie = urls.tvSeriesCategory.find(dataMovie => dataMovie.slug === slug);
     let endpointCategory;
     let url='';
+
     if(urlMovie){
         endpointCategory= urlMovie.slug;
         url = `https://api.themoviedb.org/3/movie/${endpointCategory}?language=en-US&page=${page}`
@@ -52,7 +54,7 @@ function AllMovies () {
 
     return(
         <>
-             <div className='grid grid-cols-auto-fit auto-rows-auto gap-4 p-2'>
+             <div className='container-all-movies'>
                 {    dataMovie?.map((movie,index)=>(
                    <CardAllMovies 
                    key={movie.id}

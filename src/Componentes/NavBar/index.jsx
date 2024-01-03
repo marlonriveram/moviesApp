@@ -16,7 +16,7 @@ function NavBar () {
     const renderDesktop = () =>{
     return(
         <>
-        <ul className='flex gap-9'>
+        <ul className='categoire navbar-items '>
             <li>
                 <NavLink
                     to='/peliculas'
@@ -43,7 +43,7 @@ function NavBar () {
             </li>
         </ul>
         
-        <ul className='flex gap-9'>
+        <ul className='login flex navbar-items'>
             <li>
                 <NavLink
                     to='/inicio-sesion'
@@ -82,7 +82,7 @@ function NavBar () {
     )
   }
     return(
-        <nav className='navbar flex justify-between items-center p-3'>
+        <nav className='navbar'>
             {!isMobile ? renderDesktop(): renderMobile()}
         </nav>
     )
