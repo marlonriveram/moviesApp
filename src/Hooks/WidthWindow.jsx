@@ -11,6 +11,7 @@ function useWidthWindow () {
         setIsOpenAside(false);
     })
 
+    
     return {isMobile};
 };
 

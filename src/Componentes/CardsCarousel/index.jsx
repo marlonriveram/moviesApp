@@ -1,11 +1,11 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useUrlImagen } from '../../Hooks/UrlImagen'
 import './index.css'
 function Card ({poster,title,dataMovie}){
 
     const navigate = useNavigate();
-    const location = useLocation();
     const dataImagen = useUrlImagen();//hook para el tamaño y calidad de las imagenes
+    
     const detailView = () =>{ // ir a la vista de detalles
         navigate(`/detail-View/${title}`,{ state:dataMovie });
     }
@@ -17,8 +17,8 @@ function Card ({poster,title,dataMovie}){
             className="card  "
             onClick={detailView}
         >
-            <figure className="Container_img h-full ">
-             <img className=' img-card rounded-lg' src={images}/> 
+            <figure className="Container_img">
+             <img className=' img-card' src={images}/> 
             </figure>
         </div>
     )

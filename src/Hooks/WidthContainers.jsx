@@ -1,9 +1,8 @@
-import { useContext, useEffect} from "react";
-import { Context } from "../Componentes/Contexto";
+import { useEffect, useState} from "react";
 
-function WidthContainer (containerCarouselRef) {
+function useWidthContainer (containerCarouselRef) {
     
-    const{containerCarouselWidth,setContainerCarouselWidth} = useContext(Context)
+    const [containerCarouselWidth,setContainerCarouselWidth] = useState(0);
     useEffect(() =>{
         const observador = new ResizeObserver((entries) =>{  // ResizeObserver es para que cada vez que un contenedor cambie de tamaño observar
             setContainerCarouselWidth(entries[0].contentRect.width)
@@ -21,4 +20,4 @@ function WidthContainer (containerCarouselRef) {
     return {containerCarouselWidth}
 }
 
-export {WidthContainer}
+export {useWidthContainer}

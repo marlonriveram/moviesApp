@@ -1,7 +1,7 @@
-import './index.css'
+import './layout.css'
 function Layout (prop) {
     return(
-        <div className='layout flex flex-col w-full bg-zinc-700 '>
+        <div className='layout '>
             {prop.children}
         </div>
     )

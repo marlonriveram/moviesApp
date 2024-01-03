@@ -8,14 +8,14 @@ function Hero (){
         backgroundPosition: 'center center' 
     }
     return(
-        <div style={stylesHero} className={` hero bg-gray-300 hero w-4/5 h-96 m-auto mt-4 rounded-lg sm:w-full sm:m-0 sm:rounded-none sm:h-screen sm:mb-7 relative`}>
+        <div style={stylesHero} className={` hero  `}>
 
-        <div className='info-pelicula  w-6/12 flex flex-col gap-5 p-3 absolute bottom-0 '>
-            <h3 className='titulo-pelicula text-3xl font-black'>Nombre pelicula</h3>
+        <div className='info-pelicula '>
+            <h3 className='titulo-pelicula '>Nombre pelicula</h3>
 
-            <p className='sinopsis-pelicula text-start text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sint vitae perferendis a repudiandae saepe cumque magni aliquid dolorum dolores iure impedit dolorem unde, porro, distinctio esse fugiat neque non.</p>
+            <p className='sinopsis-pelicula'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sint vitae perferendis a repudiandae saepe cumque magni aliquid dolorum dolores iure impedit dolorem unde, porro, distinctio esse fugiat neque non.</p>
 
-            <div className="container-btns flex gap-8 justify-center">
+            <div className="container-btns">
             <button className='bg-zinc-300 shadow-2xl p-2 btn-reproducir text-lg font-medium rounded-xl'>Reproducir</button>
             <button className='bg-zinc-300 shadow-2xl p-2 btn-mas-info text-lg font-medium rounded-xl'>Mas Info</button>
             </div>

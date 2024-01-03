@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import { useWidthWindow } from "../../Hooks/WidthWindow";
 import { FiX } from "react-icons/fi";
 import { Context } from "../Contexto";
+import './asideMenu.css'
+
 function AsideMenu () {
     const {isMobile} = useWidthWindow();
     const { isOpenAside,setIsOpenAside,} = useContext(Context);
@@ -13,8 +15,8 @@ function AsideMenu () {
 
     const renderHamburguerMenu = () =>{
         return(
-            <aside className={`bg-gray-300 w-full  flex justify-between p-3 absolute top-0 ${!isMobile && 'hidden'}`}>
-            <ul className='flex flex-col gap-3'>
+            <aside className={`aside-menu bg-gray-300 ${!isMobile && 'hidden'}`}>
+            <ul className='navbar-aside'>
             <li>
                 <NavLink
                     onClick={()=> clickClouse()}

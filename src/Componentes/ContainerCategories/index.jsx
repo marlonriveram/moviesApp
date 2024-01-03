@@ -1,17 +1,7 @@
-import { Categories } from "../Cateories"
-
-function ContainerCategories ({movies}) {
+function ContainerCategories (props) {
     return(
       <div className="conteiner-categories">
-         {movies?.map((movie) =>(
-              <Categories
-              key={movie.name}
-              titulo={movie.name}
-              Url={movie.url}
-              slug={movie.slug}
-              
-              />
-            ))}
+        {props.movies.map(props.render)}
       </div>
     )
 };

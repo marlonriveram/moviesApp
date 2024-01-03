@@ -1,45 +1,37 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext,useRef } from 'react'
 import { useApiPelicula } from '../../Hooks/ApiPeliculas'
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai"
 import { Card } from '../CardsCarousel'
-import './index.css'
-import { WidthContainer } from '../../Hooks/WidthContainers';
+import { useWidthContainer } from '../../Hooks/WidthContainers';
 import { ButtonType } from '../ButtonType'
+import { Context } from '../Contexto';
+import './index.css'
+import { useWidthWindow } from '../../Hooks/WidthWindow';
 
 function Carousel ({url}) {
 
-    
     const containerCarouselRef = useRef(null);
-    const {dataMovie} = useApiPelicula(url,1);
+    const {moveLeft,moveRight} =  useContext(Context);
+    const {isMobile} = useWidthWindow();
+   
     
-    const {containerCarouselWidth} = WidthContainer(containerCarouselRef);// permite saber la dimencion del conatainer del carousel
-
-    // desplazar el carousel a la izquierda
-    const moveLeft = () =>{
-        if (containerCarouselRef.current) {
-            containerCarouselRef.current.scrollLeft -= containerCarouselWidth; // se desplaza a la izq el tamaño que tenga el conatainer del carousel
-        }
-    }
-    // desplazar el carousel a la derecha
-    const moveRight = () =>{
-        if (containerCarouselRef.current) {
-            containerCarouselRef.current.scrollLeft += containerCarouselWidth; // se desplaza a la der el tamaño que tenga el conatainer del carou
-        }
-    }
-
+    
+    const {dataMovie} = useApiPelicula(url,1);
+    const {containerCarouselWidth} = useWidthContainer(containerCarouselRef);// permite saber la dimencion del conatainer del carousel
     return(
-        <div className='container-rows-carosuel  flex items-center relative  '>
-           <AiOutlineLeft
-           onClick={() => moveLeft()}
-           className=' cursor-pointer ' size={120} 
-           />
+        <div className='carosuel'>
+            {!isMobile && 
+             <ButtonType
+                type={'letArrow'}
+                size={120}
+                color={'black'}
+                onClick={() => moveLeft(containerCarouselRef,containerCarouselWidth)}
+            />}
+         
 
-            <div
-                className='container-carousel overflow-hidden '
+            <div className='container-slider'
                 ref={containerCarouselRef}
             >
-                    
-                <div className="carousel flex gap-2 p-4">
+                <div className="slider">
                     {dataMovie?.map((item) =>(
                     <Card
                         key={item.id}
@@ -52,18 +44,16 @@ function Carousel ({url}) {
                 </div>
             </div>
 
-           <AiOutlineRight
-            onClick={() => moveRight()}
-            className=' cursor-pointer ' size={120} 
-            />
-            {/* <ButtonType
-                type={'letArrow'}
+           {!isMobile &&  
+           <ButtonType
+                type={'rightArrow'}
                 size={120}
                 color={'black'}
-            />
-             */}
+                onClick={() => moveRight(containerCarouselRef,containerCarouselWidth)}
+            />}
+            
         </div>
     )
 }
 
-export {Carousel}
+export { Carousel }
